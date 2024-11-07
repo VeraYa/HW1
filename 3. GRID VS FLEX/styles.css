@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cards {
+    margin: 50px auto;
+    padding: 0 50px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 20px;
+    background-color:  #f0f0f0;
+}
+
+.flex,
+.grid {
+    padding-block: 15px;
+}
+
+.flex__title,
+.grid__title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.flex__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flex__container-card {
+    flex: 1 0 180px;
+}
+
+.grid__container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 1080px) {
+    .grid__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid__container-card:nth-child(5) {
+        grid-column: 1 / -1;
+    } 
+}
+
+@media (max-width: 860px) {
+    .grid__container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .grid__container-card:nth-child(1),
+    .grid__container-card:nth-child(2),
+    .grid__container-card:nth-child(3) {
+        grid-column: span 2;
+    } 
+
+    .grid__container-card:nth-child(4),
+    .grid__container-card:nth-child(5) {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 680px) {
+    .grid__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid__container-card:not(:last-child) {
+        grid-column: span 2;
+    }
+
+    .grid__container-card:last-child {
+        grid-column: span 4;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid__container {
+        grid-template-columns: 1fr;
+    }
+
+    .grid__container .grid__container-card {
+        grid-column: 1;
+    }
+}
