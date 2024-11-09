@@ -39,51 +39,42 @@ body {
             margin-bottom: 0px;
         }
     }
-
-    &__services {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        @media (max-width: 960px) {
-            flex-direction: row;
-            height: 590px;
-        }
-
-        @media (max-width: 460px) {
-            height: 540px;
-            justify-content: space-between;
-        }
-    }
 }
 
-.icons {
-    width: 1008px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.services {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        ". web-img hr-left hr-left i-a-img hr-right hr-right marketing-img ."
+        "web-t web-t web-t i-a-t i-a-t i-a-t marketing-t marketing-t marketing-t"
+        "web-d web-d web-d i-a-d i-a-d i-a-d marketing-d marketing-d marketing-d";
+    gap: 25px;
 
-    @media (max-width: 1080px) {
-        width: 100%;
+
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(9, auto);
+        grid-template-areas:
+            "web-img"
+            "web-t"
+            "web-d"
+            "i-a-img"
+            "i-a-t"
+            "i-a-d"
+            "marketing-img"
+            "marketing-t"
+            "marketing-d";
+        row-gap: 20px;
+        column-gap: 0;
     }
 
-    @media (max-width: 960px) {
-        width: 30%;
-        height: 100%;
-        flex-direction: column;
-        align-self: start;
-        justify-content: space-around;
-    }
+    &__img-wrap {
 
-    @media (max-width: 560px) {
-        width: 20%;
-    }
-
-    &__wrap {
-        width: 16%;
-
-        @media (max-width: 560px) {
-            width: auto;
+        @media (max-width: 700px) {
+            width: 106px;
+            margin: auto;
         }
     }
 
@@ -103,42 +94,9 @@ body {
     }
 
     &__divider {
-        width: 16%;
-        height: 1px;
-        background-color: #ccc;
-
-        @media (max-width: 960px) {
-            display: none;
-        }
-    }
-}
-
-.services {
-    display: flex;
-
-    @media (max-width: 960px) {
-        flex-direction: column;
-        align-items: start;
-        width: 70%;
-    }
-
-    @media (max-width: 560px) {
-        width: 80%;
-    }
-
-    @media (max-width: 460px) {
-        padding-top: 23px;
-    }
-
-    &__wrap {
-        max-width: 300px;
-        margin-bottom: 20px;
-        padding: 15px;
-        text-align: center;
-
-        @media (max-width: 460px) {
-            margin-bottom: 0;
-        }
+        width: 100%;
+        border: 1px solid #ccc;
+        align-self: center;
     }
 
     &__title {
@@ -166,4 +124,48 @@ body {
 
 .marketing-icon {
     background-image: url('./img/marketing.jpg');
+}
+
+.web-img {
+    grid-area: web-img;
+}
+
+.hr-left {
+    grid-area: hr-left;
+}
+
+.hr-right {
+    grid-area: hr-right;
+}
+
+.i-a-img {
+    grid-area: i-a-img;
+}
+
+.marketing-img {
+    grid-area: marketing-img;
+}
+
+.web-t {
+    grid-area: web-t;
+}
+
+.i-a-t {
+    grid-area: i-a-t;
+}
+
+.marketing-t {
+    grid-area: marketing-t;
+}
+
+.web-d {
+    grid-area: web-d;
+}
+
+.i-a-d {
+    grid-area: i-a-d;
+}
+
+.marketing-d {
+    grid-area: marketing-d;
 }
